@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IFingerprintService, MockFingerprintService>();
 
 var app = builder.Build();
 

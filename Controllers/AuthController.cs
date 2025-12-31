@@ -23,8 +23,8 @@ public class AuthController : Controller
     {
         if (_authService.ValidateCredentials(model.Username, model.Password))
         {
-            ViewBag.Message = "Login successful!";
-            return View();
+            TempData["User"] = model.Username;
+            return RedirectToAction("Verify", "Fingerprint");
         }
 
         ViewBag.Error = "Invalid credentials";
